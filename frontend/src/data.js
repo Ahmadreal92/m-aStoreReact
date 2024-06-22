@@ -8,5 +8,17 @@ export const sample_parfums = [
         stars : 4,
         imageUrl: 'https://imgur.com/6uysF8w',
         tags:['Men','floarl'],
+    },
+
+
+    {
+        id:'2',
+        name:'True',
+        price :45,
+        favorite: false,
+        origins:['France'],
+        stars : 5,
+        imageUrl: 'frontend\\public\\parfums\\dior.jpg',
+        tags:['Men','floarl'],
     }
 ]
