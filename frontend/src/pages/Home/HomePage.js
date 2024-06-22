@@ -1,7 +1,9 @@
 import React, { useEffect, useReducer } from "react";
-import { getAll } from "../../services/parfumServices";
+import { getAll , search} from "../../services/parfumServices";
 import { type } from "@testing-library/user-event/dist/type";
 import Thumbnails from "../../components/Thumbnails/Thumbnails";
+import { useParams } from "react-router-dom";
+import Search from "../../components/Search/Search";
 
 
 
@@ -18,11 +20,19 @@ export default function HomePage(){
     const [state,dispatch] = useReducer(reducer, initialState);
     const {parfums} =state;
 
+    const{searchTerm} = useParams();
+
     useEffect (() =>{
-getAll().then(parfums => dispatch({type:'PARFUMS_LOADED',payload:parfums}));
-    }, []);
+        const loadParfums = searchTerm? search(searchTerm) : getAll();
+
+        loadParfums.then(parfums => dispatch ({type: 'PARFUMS_LOADED',payload: parfums})
+
+        )
+     getAll().then(parfums => dispatch({type:'PARFUMS_LOADED',payload:parfums}));
+    }, [searchTerm]);
     return (
     <>
+    <Search />
     <Thumbnails parfums ={parfums} />
     </>
     );

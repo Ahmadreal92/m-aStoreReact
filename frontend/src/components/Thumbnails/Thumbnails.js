@@ -16,7 +16,11 @@ export default function Thumbnails({ parfums }) {
                             alt={parfums.name}
                         />
                     
+
+
+
                     <div className={classes.content}>
+              <div className={classes.name}>{parfum.name}</div>
                         <span className={`${classes.favorite}${parfum.favorite ? '' : classes.not}`}>
 
 
