@@ -16,3 +16,6 @@ export const search =  async searchTerm =>
         if ( tag === 'All') return getAll();
         return sample_parfums.filter(item => item.tags?.includes(tag));
     };
+
+    export const getById = async parfumId => 
+        sample_parfums.find(item => item.id === parfumId);
