@@ -28,7 +28,7 @@ export default function ParfumPage() {
                     <span
                         className={`${classes.favorite} 
                         ${parfum.favorite ? '' : classes.not}`}>
-                        ❤️
+                        ❤
                     </span>
                 </div>
                 <div className={classes.rating}>
