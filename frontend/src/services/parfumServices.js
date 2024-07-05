@@ -1,21 +1,32 @@
-import { sample_Tags, sample_parfums } from "../../../backend/src/data";
 
-export const getAll = async () => sample_parfums;
+import axios from "axios";
+
+export const getAll = async () => {
+    const {data} = await axios.get('/api/parfums');
+    return data;
+};
 
 
 
 export const search =  async searchTerm => 
-    sample_parfums.filter (item => 
-        item.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    {
+        const{data} =await axios.get('/api/parfums/search/'+ searchTerm);
+        return data;
+    };
 
 
-    export const getAllTags = async () => sample_Tags;
+    export const getAllTags = async () => {
+        const {data} = await axios.get('/api/parfums/tags');
+        return data;
+    };
 
     export const getAllByTag = async tag => {
         if ( tag === 'All') return getAll();
-        return sample_parfums.filter(item => item.tags?.includes(tag));
+        const {data} = await axios.get('/api/parfums/tag/'+ tag);
+        return data;
     };
 
-    export const getById = async parfumId => 
-        sample_parfums.find(item => item.id === parfumId);
+    export const getById = async parfumId => {
+        const {data} = await axios.get('/api/parfums/' + parfumId);
+        return data;
+    };
