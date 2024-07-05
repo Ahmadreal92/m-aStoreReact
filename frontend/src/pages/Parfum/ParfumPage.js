@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import classes from './parfumPage.module.css';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getById } from '../../services/parfumServices';
 import StarRating from '../../components/StarRating/StarRating';
 import Tags from '../../components/Tags/Tags';
 import Price from '../../components/Price/Price';
+import { useCart } from '../../hooks/useCart';
+import NotFound from '../../components/NotFound/NotFound';
 
 
 
@@ -12,11 +14,21 @@ import Price from '../../components/Price/Price';
 export default function ParfumPage() {
     const [parfum, setParfum] = useState({});
     const { id } = useParams();
+    const {addToCart} = useCart ();
+    const navigate =useNavigate();
+const handleAddToCart = () => {
+    addToCart(parfum);
+navigate('/cart');
+}
+
     useEffect(() => {
         getById(id).then(setParfum);
     }, [id]);
-    return (<>
-        {parfum && <div className={classes.container}>
+    return (
+    <>
+        {!parfum? (<NotFound message="Parfum Not Found" linkText="Back to Home Page"/>
+        ) : (
+            <div className={classes.container}>
             <img className={classes.img}
                 src={`/parfums/${parfum.imageUrl}`}
                 alt={parfum.name} />
@@ -56,12 +68,13 @@ export default function ParfumPage() {
                 <div className={classes.price}>
                     <Price price={parfum.price} />
                 </div>
-                <button >Add to Cart</button>
+
+                <button onClick={handleAddToCart}>Add to Cart</button>
 
 
             </div>
         </div>
-        }
+        )}
     </>
     );
 }
