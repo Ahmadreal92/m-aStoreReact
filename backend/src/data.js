@@ -30,3 +30,15 @@ export const sample_Tags = [
     {name: 'Men', count:1},
     {name:'Woman', count:1},
 ];
+
+
+export const sample_users = [
+    {
+        id : 1,
+        name: 'Ahmad Alnjjar',
+        email: 'ahmadalnjjar@gmail.com',
+        adress : 'Haldener Str.40',
+        isAdmin: true,
+        password: '12345',
+    }
+]

@@ -3,6 +3,7 @@ import { Route , Routes} from "react-router-dom";
 import HomePage from "./pages/Home/HomePage";
 import ParfumPage from "./pages/Parfum/ParfumPage";
 import CartPage from "./pages/Cart/CartPage";
+import LoginPage from "./pages/Login/LoginPage";
 
 
 export default function AppRoutes(){
@@ -13,6 +14,7 @@ export default function AppRoutes(){
         <Route path="/tag/:tag" element= {<HomePage/>} />
         <Route path="/parfum/:id" element= {<ParfumPage/>} />
         <Route path="/cart" element= {<CartPage/>} />
+        <Route path="/login" element= {<LoginPage/>} />
     </Routes>
     );
 }
