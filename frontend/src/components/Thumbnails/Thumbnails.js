@@ -12,7 +12,7 @@ export default function Thumbnails({ parfums }) {
                     <Link to={`/parfum/${parfum.id}`}>
                         <img
                             className={classes.image}
-                            src={`/parfums/${parfum.imageUrl}`}
+                            src={`${parfum.imageUrl}`}
                             alt={parfums.name}
                         />
                     

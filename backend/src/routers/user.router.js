@@ -1,24 +1,26 @@
 import { Router } from 'express';
-import { sample_users } from '../data';
+
 import jwt from 'jsonwebtoken';
 import { BAD_REQUEST } from '../constants/httpStatus.js';
+import handler from 'express-async-handler';
+import { UserModel } from '../models/user.model.js';
+import bcrypt from 'bcryptjs';
+
 
 
 const router = Router();
 
 
-router.post('/login', (req, res) => {
+router.post('/login', (async (req, res) => {
     const {email, password} = req.body;
-    const user = sample_users.find(
-        user => user.email === email && user.password === password
-    );
-    if(user){
+    const user = await UserModel.findOne({email});
+    if(user && (await bcrypt.compare(password,user.password))){
       res.json(generateTokenResponse(user));
       return;
     
 }
 res.status(BAD_REQUEST).json('Username or Password is invalid')
-});
+}));
 
 const generateTokenResponse = user => {
     const token = jwt.sign(
@@ -27,7 +29,7 @@ const generateTokenResponse = user => {
         email:user.email,
         isAdmin :user.isAdmin,
     },
-'SomeRandomText',{
+process.env.JWT_SECRET,{
 expiresIn : '1d',
 }
 );

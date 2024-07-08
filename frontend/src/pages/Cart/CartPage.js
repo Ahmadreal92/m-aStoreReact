@@ -20,7 +20,7 @@ export default function CartPage() {
                     {cart.items.map(item => (
                         <li key={item.parfum.id}>
                         <div>
-                            <img src={`/parfums/${item.parfum.imageUrl}`}
+                            <img src={`${item.parfum.imageUrl}`}
                              alt={item.parfum.name} />
                         </div>
 

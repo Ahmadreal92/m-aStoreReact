@@ -2,8 +2,11 @@ import express from 'express';
 import cors from 'cors';
 import parfumRouter from './routers/parfum.router.js';
 import userRouter from './user.router.js';
+import dotenv from 'dotenv';
 
-
+dotenv.config();
+import { dbconnect } from './config/database.config.js';
+dbconnect();
 const app = express();
 app.use(express.json());
 

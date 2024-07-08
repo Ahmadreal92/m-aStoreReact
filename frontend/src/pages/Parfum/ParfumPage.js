@@ -30,7 +30,7 @@ navigate('/cart');
         ) : (
             <div className={classes.container}>
             <img className={classes.img}
-                src={`/parfums/${parfum.imageUrl}`}
+                src={`${parfum.imageUrl}`}
                 alt={parfum.name} />
 
             <div className={classes.details}>
