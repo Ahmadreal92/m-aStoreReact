@@ -66,7 +66,7 @@ const addToCart = parfum => {
   if(cartItem){
     changeQuantity(cartItem,cartItem.quantity+1);
   }else{
-    setCartItems([...cartItem,{parfum,quantity:1,price:parfum.price}]);
+    setCartItems([...cartItems,{parfum,quantity:1,price:parfum.price}]);
   }
 }
 
