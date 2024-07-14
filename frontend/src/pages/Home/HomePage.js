@@ -34,11 +34,13 @@ export default function HomePage() {
                     ? search(searchTerm)
                     : getAll();
 
-        loadParfums.then(parfums => dispatch({ type: 'PARFUMS_LOADED', payload: parfums })
+        loadParfums.then(parfums => 
+            dispatch({ type: 'PARFUMS_LOADED', payload: parfums })
 
-        )
-        getAll().then(parfums => dispatch({ type: 'PARFUMS_LOADED', payload: parfums }));
-    }, [searchTerm, tag]);
+        );
+        //getAll().then(parfums => dispatch({ type: 'PARFUMS_LOADED', payload: parfums }));
+    }, 
+    [searchTerm, tag]);
     return (
         <>
             <Search />
