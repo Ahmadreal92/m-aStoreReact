@@ -13,7 +13,7 @@ export default function Tags({ tags, forPArfumPage: forParfumPage }) {
                 justifyContent: forParfumPage ? 'start' : 'center'
             }}
         >
-            {tags.map(tag => (
+            {tags?.map(tag => (
                 <Link key={tag.name} to={`/tag/${tag.name}`}>
                     {tag.name}
                     {!forParfumPage && `(${tag.count})`}

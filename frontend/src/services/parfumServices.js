@@ -2,8 +2,12 @@
 import axios from "axios";
 
 export const getAll = async () => {
-    const {data} = await axios.get('/api/parfums');
+    try { 
+        const {data} = await axios.get('/api/parfums');
     return data;
+} catch (error){
+    console.log(error);
+     }
 };
 
 
@@ -16,8 +20,12 @@ export const search =  async searchTerm =>
 
 
     export const getAllTags = async () => {
-        const {data} = await axios.get('/api/parfums/tags');
+        try {
+            const {data} = await axios.get('/api/parfums/tags');
         return data;
+    } catch (error){
+       console.log(error);
+        }
     };
 
     export const getAllByTag = async tag => {

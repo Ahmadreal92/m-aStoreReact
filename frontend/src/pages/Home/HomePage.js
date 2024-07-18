@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 import { getAll, getAllByTag, getAllTags, search } from "../../services/parfumServices";
-import { type } from "@testing-library/user-event/dist/type";
+
 import Thumbnails from "../../components/Thumbnails/Thumbnails";
 import { useParams } from "react-router-dom";
 import Search from "../../components/Search/Search";
@@ -45,7 +45,7 @@ export default function HomePage() {
         <>
             <Search />
             <Tags tags={tags} />
-            {parfums.length === 0 && <NotFound linkText = "Reset Search"/>}
+            {parfums?.length === 0 && <NotFound linkText = "Reset Search"/>}
             <Thumbnails parfums={parfums} />
         </>
     );

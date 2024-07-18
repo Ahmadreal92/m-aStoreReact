@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { ParfumModel } from "../models/parfum.model";
+import { ParfumModel } from "../models/parfum.model.js";
 import handler from 'express-async-handler'
 
 const router =Router();

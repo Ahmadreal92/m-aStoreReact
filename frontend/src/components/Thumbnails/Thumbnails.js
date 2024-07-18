@@ -7,7 +7,7 @@ export default function Thumbnails({ parfums }) {
     return (
         <ul className={classes.list}>
 
-            {parfums.map(parfum => (
+            {parfums?.map(parfum => (
                 <li key={parfums.id}>
                     <Link to={`/parfum/${parfum.id}`}>
                         <img
@@ -32,7 +32,7 @@ export default function Thumbnails({ parfums }) {
                      
                      <div className={classes.product_item_footer}>
                         <div className={classes.origins}>
-                            {parfum.origins.map(origin=> (
+                            {parfum.origins?.map(origin=> (
                                 <span key={origin}>{origin}</span>
                             ))}
                         </div>
