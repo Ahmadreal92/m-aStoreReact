@@ -2,7 +2,7 @@ import { Router } from 'express';
 import handler from 'express-async-handler';
 import auth from '../middleware/auth.mid.js';
 import { BAD_REQUEST } from '../constants/httpStatus.js';
-import { OrderModel } from 'backend\src\models\order.modle.js';
+import { OrderModel } from '../models/order.modle.js';
 import { OrderStatus } from '../constants/orderStatus.js';
 
 const router = Router();
