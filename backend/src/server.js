@@ -3,6 +3,9 @@ import cors from 'cors';
 import parfumRouter from './routers/parfum.router.js';
 import userRouter from './routers/user.router.js';
 import dotenv from 'dotenv';
+import orderRouter from './routers/order.router.js'
+
+
 
 dotenv.config();
 import { dbconnect } from './config/database.config.js';
@@ -20,6 +23,7 @@ app.use(
 
 app.use('/api/parfums',parfumRouter);
 app.use('/api/users',userRouter);
+app.use('/api/orders',orderRouter);
 
 const PORT =4000;
 app.listen(PORT,()=>{

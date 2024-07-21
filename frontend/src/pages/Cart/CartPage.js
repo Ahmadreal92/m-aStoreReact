@@ -14,7 +14,7 @@ export default function CartPage() {
     <>
         <Title title="Cart Page" margin="1.5rem 0 0 2.5rem" />
 
-        { cart.items.length === 0 ? (<NotFound message="Cart PAge is Empty"/>): (
+        { cart.items.length === 0 ? (<NotFound message="Cart Page is Empty"/>): (
             <div className={classes.container}>
                 <ul className={classes.list}>
                     {cart.items.map(item => (
