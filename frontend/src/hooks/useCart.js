@@ -68,7 +68,15 @@ const addToCart = parfum => {
   }else{
     setCartItems([...cartItems,{parfum,quantity:1,price:parfum.price}]);
   }
-}
+};
+
+const clearCart = () => {
+  localStorage.removeItem(CART_KEY);
+  const { items, totalPrice, totalCount } = EMPTY_CART;
+  setCartItems(items);
+  setTotalPrice(totalPrice);
+  setTotalCount(totalCount);
+};
 
   return (
     <CartContext.Provider
@@ -77,6 +85,7 @@ const addToCart = parfum => {
         removeFromCart,
         changeQuantity,
         addToCart,
+        clearCart,
       }}>
       {children}
     </CartContext.Provider>
