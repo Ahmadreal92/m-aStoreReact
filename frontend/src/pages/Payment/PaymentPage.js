@@ -32,7 +32,7 @@ export default function PaymentPage() {
           <OrderItemsList order={order} />
         </div>
 
-
+    
         <div className={classes.buttons_container}>
           <div className={classes.buttons}>
             <PaypalButtons order={order} />
