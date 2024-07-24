@@ -3,7 +3,6 @@ import classes from './parfumPage.module.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getById } from '../../services/parfumServices';
 import StarRating from '../../components/StarRating/StarRating';
-import Tags from '../../components/Tags/Tags';
 import Price from '../../components/Price/Price';
 import { useCart } from '../../hooks/useCart';
 import NotFound from '../../components/NotFound/NotFound';
