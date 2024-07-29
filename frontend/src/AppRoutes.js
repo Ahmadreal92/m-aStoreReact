@@ -26,7 +26,7 @@ export default function AppRoutes() {
             <Route path="/payment" element={<AuthRoute><PaymentPage /></AuthRoute>} />
             <Route path="/profile" element={<AuthRoute><ProfilePage /></AuthRoute>} />
             <Route path="/track/:orderId" element={<AuthRoute><OrderTrackPage /></AuthRoute>} />
-            <Route path="/orders/:filter" element={<AuthRoute><OrdersPage /></AuthRoute>} />
+            <Route path="/order/:filter?" element={<AuthRoute><OrdersPage /></AuthRoute>} />
 
         </Routes>
 

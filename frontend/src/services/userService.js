@@ -24,13 +24,29 @@ export const login = async (email, password) => {
   };
 
   export const updateProfile = async user => {
-    const { data } = await axios.put('/api/users/updateProfile', user);
-    localStorage.setItem('user', JSON.stringify(data));
-    return data;
+    try {
+      const { data } = await axios.put('/api/users/updateProfile', user, {
+        headers: {
+          access_token: JSON.parse(localStorage.getItem("user"))["token"],
+        },
+      });
+      localStorage.setItem('user', JSON.stringify(data));
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
   };
   
   export const changePassword = async passwords => {
-    await axios.put('/api/users/changePassword', passwords);
+    try {
+      await axios.put('/api/users/changePassword', passwords, {
+        headers: {
+          access_token: JSON.parse(localStorage.getItem("user"))["token"],
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   
